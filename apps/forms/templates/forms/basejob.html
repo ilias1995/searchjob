@@ -1,0 +1,31 @@
+{% load staticfiles %}
+<head>
+	<link rel="stylesheet" type="text/css" href="{% static 'forms/css/bootstrap.css' %}">
+	<link rel="stylesheet" type="text/javascript" href="{% static 'forms/js/job.js'%}">
+</head>
+<body>
+<div class="divstyle">
+	<a href="/forms/logout/" class="btn btn-primary logout">Logout</a><br />
+	<h3>SearchJob.kg</h3>
+	<ul class="nav nav-pills nav-stacked">
+	  <li role="presentation"><a href="/job">Дамой</a></li>
+	  <li role="presentation"><a href="/addjob/">Добавить работу</a></li>
+	  <li role="presentation"><a href="/forms/profile">Личный кабинет</a></li>
+	</ul>
+</div>
+<div class="jobbody">
+<div class="jumbotron">
+	<h2 class="h2shop">SearchJob</h2>
+</div>
+<ul class="nav nav-pills nav-justified">
+	{% for jobtypes in jobtypes %}
+		<li role="presentation" class="">
+			<a href="/{{ jobtype.id }}/">{{ jobtype.job_type }}</a>
+		</li>
+	{% endfor %}
+</ul>
+{% block content %}
+
+{% endblock %}
+</div>
+</body>

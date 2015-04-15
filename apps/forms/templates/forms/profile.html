@@ -1,0 +1,19 @@
+{% extends "forms/base.html" %}
+
+
+{% block content %}
+<div class="index-body">
+	<h4>Имя: {{ user.first_name }}</h4><br/>
+	<h4>Фамилия: {{ user.last_name }}</h4><br/>
+	<h4>Почтовый адрес: {{ user.email }}</h4><br/>
+</div>
+<a href="/forms/editprofile" ><button type="button" class="btn btn-profile">Изменить профиль</button></a>
+<a href="/forms/password_change" ><button type="button" class="btn btn-profile">Изменить пароль</button></a>
+<hr/>
+
+        {% for job in job %}
+<h3><a href="/forms/{{ job.id }}/ ">{{ job.name_job }} </a> {{ job.user }} </h3>
+    <a href='{{ job.id }}/'> Delete</a> <br/><hr/>
+        {% endfor %}
+
+{% endblock %}

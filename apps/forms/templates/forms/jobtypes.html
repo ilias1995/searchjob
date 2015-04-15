@@ -1,0 +1,12 @@
+{% extends "forms/base.html" %}
+
+
+{% block content %}
+
+
+	{% for job in jobtype.job_set.all %}
+		<h3>{{ job.name_job }}</h3><br/>
+	{% endfor %}
+
+
+{% endblock %}

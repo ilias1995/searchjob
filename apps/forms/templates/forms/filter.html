@@ -1,0 +1,14 @@
+{% extends "forms/base.html" %}
+
+
+{% block content %}
+
+<div class="filter-body">
+<a href=""></a>
+	<h3> Город: {{ job.name_town }}</h3> <br/> 
+	<h3> Работа: {{ job.name_job }}</h3> <br/>
+	<h3> Почта: {{ job.email }}</h3> <br/>
+	<h3> Количество работников: {{ job.how_many }}</h3> <br/> 
+	<h3> Описание: {{ job.about }} </h3><br/>
+</div>
+{% endblock %}

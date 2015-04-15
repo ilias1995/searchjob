@@ -1,0 +1,13 @@
+{% extends "forms/base.html" %}
+{% load bootstrap %}
+
+{% block content %}
+
+<div class="addjob-body">
+	<form method="post">{% csrf_token %}
+		{{ form|bootstrap }}
+
+		<input type="submit" value="Добавить" class="btn btn-primary btn-lg active"/>
+	</form>
+</div>
+{% endblock %}

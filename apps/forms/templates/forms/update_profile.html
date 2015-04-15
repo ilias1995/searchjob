@@ -1,0 +1,17 @@
+{% extends "forms/base.html"  %}
+{% load bootstrap %}
+{% block content %}
+
+
+<div class="index-body">
+	<form class="form-inline" action="" method="post">
+	{% csrf_token %}
+        {{ form.username|bootstrap }}<br/>
+        {{ form.email|bootstrap }}<br/>
+        {{ form.first_name|bootstrap }}<br/>
+        {{ form.last_name|bootstrap }}<hr/>
+	    <input class="btn job-btn" type="submit" value="Изменить" />
+	</form> <br/>
+
+</div>
+{% endblock %}

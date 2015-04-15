@@ -1,0 +1,30 @@
+{% load bootstrap %}
+{% load staticfiles %}
+<head>
+	<link rel="stylesheet" type="text/css" href="{% static 'forms/css/bootstrap.css' %}">
+	<link rel="stylesheet" type="text/javascript" href="{% static 'forms/js/job.js'%}">
+</head>
+<body>
+{% if user.is_authenticated  %}
+<div class="divstyle">
+	<a href="/forms/logout/" class="btn job-btn logout">Выход</a><br />
+	<h3>Birzha.kg</h3>
+	<ul class="nav nav-pills nav-stacked">
+	  <li role="presentation"><a href="/job">Дамой</a></li>
+	  <li role="presentation"><a href="/addjob/">Добавить работу</a></li>
+	  <li role="presentation"><a href="/forms/profile">Личный кабинет</a></li>
+	</ul>
+</div>
+<div class="jobbody">
+<div class="jumbotron">
+	<h2 class="h2shop">Биржа труда</h2>
+</div>
+{% block content %}
+
+{% endblock %}
+</div>
+{% else %}
+<h1> BAD request!!! 404  </h1>
+    Ошибка!!! Вы не регистрированы!
+{% endif %}
+</body>

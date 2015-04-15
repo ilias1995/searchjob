@@ -1,0 +1,29 @@
+{% load staticfiles %}
+{% load bootstrap %}
+<head>
+	<link rel="stylesheet" type="text/css" href="{% static 'forms/css/bootstrap.css' %}">
+	<link rel="stylesheet" type="text/javascript" href="{% static 'forms/js/bootstrap.js'%}">
+</head>
+<body>
+<div class="indexbody">
+<div class="jumbotron">
+	<h2 class="h2shop">SearchJob</h2>
+</div>
+{% block content %}
+	<div class="addjob-body">
+			<form class="register" method="post" action="/forms/registeration/">
+			{% csrf_token %}
+
+			<h5> {{ form.first_name|bootstrap }}</h5><br/>
+			<h5>{{ form.last_name|bootstrap }}</h5><br/>
+			<h5>{{ form.email|bootstrap }}</h5><br/>
+			<h5>{{ form.username|bootstrap }}</h5><br/>
+			<h5> {{ form.password|bootstrap }}</h5><br/>
+			<a href="/forms/pravila">Прочиать правила сайта</a>
+			<h5>Согласится правилай сайта: {{ form.check }}</h5><br/>
+			<input type="submit" value="Register" class="btn btn-primary btn-lg active"/>
+		</form>
+	</div>
+{% endblock %}
+</div>
+</body>

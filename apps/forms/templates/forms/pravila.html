@@ -1,0 +1,20 @@
+{% load staticfiles %}
+<head>
+	<link rel="stylesheet" type="text/css" href="{% static 'forms/css/bootstrap.css' %}">
+	<link rel="stylesheet" type="text/javascript" href="{% static 'forms/js/bootstrap.js'%}">
+</head>
+<body>
+<div class="indexbody">
+<div class="jumbotron">
+	<h2 class="h2shop">SearchJob</h2>
+</div>
+trhtrh thdrth
+{% block content %}
+	<div class="index-job">
+		{% for pravila in pravila %}
+			<h2>{{ pravila.pravila_sayta }}</h2>
+		{% endfor %}
+	</div>
+{% endblock %}
+</div>
+</body>

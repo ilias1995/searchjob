@@ -1,0 +1,26 @@
+{% load staticfiles %}
+<head>
+	<link rel="stylesheet" type="text/css" href="{% static 'forms/css/bootstrap.css' %}">
+	<link rel="stylesheet" type="text/javascript" href="{% static 'forms/js/bootstrap.js'%}">
+</head>
+<body>
+<div class="indexbody">
+<div class="jumbotron">
+	<h2 class="h2shop">SearchJob</h2>
+</div>
+{% block content %}
+	<div class="index-job">
+		<h3>Добропожаловать на наш сайт!!!</h3>
+        <h4>Мы рады вашему присутствую на этом сайте. Цель нашего сайта в том что обеспечить людей с работой, или помочь людям легко
+                найти рабочих сил. Если вы хотите найти или предложить работу, тогда РЕГИСТРИРУЙТЕСЬ и обизательно прочтите
+            правила нашего сайта. Если вы зарегистрированы то тогда нажмите на кнопку ВХОД. Мы надеймся что этот сайт будет вам полезным.
+        <h3>Это сайт не несет ответсвенность за людей!!! </h3>
+            <h5>По этому пожалуйста прочтите правила сайта когда будете регистрироватся.</h5>
+            <h4>Еще раз спосибо за присутствие!!!</h4>
+        </h4>
+			<a href="forms/registeration/" class="btn btn-index btn-lg active" role="button">Регистрация</a>
+			<a href="/forms/login" class="btn btn-index btn-lg active" role="button">Вход</a>
+	</div>
+{% endblock %}
+</div>
+</body>
