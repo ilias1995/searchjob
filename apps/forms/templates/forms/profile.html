@@ -2,7 +2,22 @@
 
 
 {% block content %}
-<div class="index-body">
+        <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
+          <ul class="nav navbar-nav">
+            <li><a href="/job">Домой</a></li>
+            <li><a href="/addjob/">Добавить</a></li>
+            <li class="active"><a href="/forms/profile">Личный кабинет</a></li>
+              <li><a class="job-logout" href="/forms/logout/">Выход</a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+<body class="body-job">
+<h1 class="h1-index">Birzha.kg</h1>
+<div class="job-body">
+<div>
 	<h4>Имя: {{ user.first_name }}</h4><br/>
 	<h4>Фамилия: {{ user.last_name }}</h4><br/>
 	<h4>Почтовый адрес: {{ user.email }}</h4><br/>
@@ -10,10 +25,10 @@
 <a href="/forms/editprofile" ><button type="button" class="btn btn-profile">Изменить профиль</button></a>
 <a href="/forms/password_change" ><button type="button" class="btn btn-profile">Изменить пароль</button></a>
 <hr/>
-
         {% for job in job %}
-<h3><a href="/forms/{{ job.id }}/ ">{{ job.name_job }} </a> {{ job.user }} </h3>
-    <a href='{{ job.id }}/'> Delete</a> <br/><hr/>
+            <h3><a href="/forms/{{ job.id }}/ ">{{ job.name_job }} </a> </h3>
+                <a href='{{ job.id }}/'> Delete</a> <br/><hr/>
         {% endfor %}
-
+    </div>
+</body>
 {% endblock %}

@@ -57,12 +57,12 @@ class UserChangeForm(forms.ModelForm):
 class Reg(forms.ModelForm):
 	class Meta:
 		model = Job
-		fields = ('name_town', 'jobtype' , 'name_job', 'email', 'how_many', 'about', 'jobtype')
+		fields = ('name_town', 'jobtype' , 'phone_number', 'date_job', 'name_job', 'email', 'how_many', 'about', 'jobtype')
 
 
 class Register(forms.ModelForm):
 	password = forms.CharField(widget=forms.PasswordInput())
-	check = forms.BooleanField( )
+	check = forms.BooleanField( label='Соглосна ли вы правилами сайта ' )
 	class Meta:
 		model = User
 		fields = ('first_name', 'last_name', 'email', 'username', 'password')

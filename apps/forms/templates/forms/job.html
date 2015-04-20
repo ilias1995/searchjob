@@ -1,10 +1,22 @@
 {% extends "forms/base.html"  %}
 {% load bootstrap %}
 {% block content %}
-
-
-<div class="index-body">
-	<form class="form-inline" action="" method="get"> 
+    <nav class="navbar navbar-inverse">
+          <div class="container-fluid">
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="/job">Домой</a></li>
+                <li><a href="/addjob/">Добавить</a></li>
+                <li><a href="/forms/profile">Личный кабинет</a></li>
+                <li><a class="job-logout" href="/forms/logout/">Выход</a></li>
+              </ul>
+            </div><!-- /.navbar-collapse -->
+          </div><!-- /.container-fluid -->
+    </nav>
+<body class="body-job">
+<h1 class="h1-index">Birzha.kg</h1>
+<div class="job-body">
+	<form class="form-inline " action="" method="get">
 	{% csrf_token %}
         {{ filter.form|bootstrap }}
 	    <input class="btn job-btn" type="submit" value="Поиск" />
@@ -16,4 +28,5 @@
 	  		<h3><a href="/forms/{{ obj.id }}/ ">{{ obj.name_job }}</a><hr></hr></h3><br/>
 		{% endfor %}
 </div>
+</body>
 {% endblock %}

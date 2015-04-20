@@ -5,7 +5,7 @@ from django.contrib.auth import views
 urlpatterns = patterns('',
 	url(r'^registeration/', 'apps.forms.views.register', name='register'),
 	url(r'^pravila/', 'apps.forms.views.pravila', name='pravila'),
-	url(r'^login/$', 'apps.forms.views.login', name='login'),
+	url(r'^login/$', 'apps.forms.views.index', name='login'),
 	url(r'^base/', 'apps.forms.views.base', name='base'),
 	url(r'^(?P<id>\d+)/$', 'apps.forms.views.info', name='info'),
 	url(r'^(?P<job_id>\d+)/vote/$', 'apps.forms.views.vote', name='vote'),
@@ -21,6 +21,7 @@ urlpatterns = patterns('',
         name="password_reset" ),
     url(r'^password_reset_confirm/$', 'apps.forms.views.password_reset_confirm'),
     url(r'^password_reset_done/$', 'apps.forms.views.password_reset_done'),
+    url(r'^hello/$', 'apps.forms.views.hello'),
     # Examples:
     # url(r'^$', 'searchjob.views.home', name='home'),
 )

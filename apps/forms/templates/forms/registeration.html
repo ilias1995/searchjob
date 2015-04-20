@@ -4,24 +4,17 @@
 	<link rel="stylesheet" type="text/css" href="{% static 'forms/css/bootstrap.css' %}">
 	<link rel="stylesheet" type="text/javascript" href="{% static 'forms/js/bootstrap.js'%}">
 </head>
-<body>
-<div class="indexbody">
-<div class="jumbotron">
-	<h2 class="h2shop">SearchJob</h2>
-</div>
+<body class="indexbody">
+<div>
 {% block content %}
 	<div class="addjob-body">
+         <h1 class="h1-index">Birzha.kg</h1>
 			<form class="register" method="post" action="/forms/registeration/">
 			{% csrf_token %}
 
-			<h5> {{ form.first_name|bootstrap }}</h5><br/>
-			<h5>{{ form.last_name|bootstrap }}</h5><br/>
-			<h5>{{ form.email|bootstrap }}</h5><br/>
-			<h5>{{ form.username|bootstrap }}</h5><br/>
-			<h5> {{ form.password|bootstrap }}</h5><br/>
-			<a href="/forms/pravila">Прочиать правила сайта</a>
-			<h5>Согласится правилай сайта: {{ form.check }}</h5><br/>
-			<input type="submit" value="Register" class="btn btn-primary btn-lg active"/>
+			<h5> {{ form|bootstrap }}</h5><br/>
+			<a class="btn btn-register btn-lg active" href="/forms/pravila">Прочиать правила сайта</a><hr class=" hr-index"/>
+			<input type="submit" value="Регистрация" class="btn btn-register btn-lg active"/>
 		</form>
 	</div>
 {% endblock %}

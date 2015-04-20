@@ -1,16 +1,16 @@
+
 {% load staticfiles %}
+{% load bootstrap %}
 <head>
 	<link rel="stylesheet" type="text/css" href="{% static 'forms/css/bootstrap.css' %}">
 	<link rel="stylesheet" type="text/javascript" href="{% static 'forms/js/bootstrap.js'%}">
 </head>
-<body>
-<div class="indexbody">
-<div class="jumbotron">
-	<h2 class="h2shop">SearchJob</h2>
-</div>
-trhtrh thdrth
+<body class="indexbody">
+<div>
+    <h1 class="h1-index">Birzha.kg</h1>
+    <h3 class="h3-index"> Правила сайта </h3>
 {% block content %}
-	<div class="index-job">
+	<div class="addjob-body">
 		{% for pravila in pravila %}
 			<h2>{{ pravila.pravila_sayta }}</h2>
 		{% endfor %}

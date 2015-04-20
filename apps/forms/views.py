@@ -1,4 +1,5 @@
 # coding: utf-8
+from django.contrib.auth.models import User
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponseRedirect, HttpResponse
 from django.core.urlresolvers import reverse
@@ -24,19 +25,6 @@ from forms import Reg, Register, UserProfileForm, UpdateProfile
 
 
 
-def login(request):
-    username = request.POST.get('username')
-    password = request.POST.get('password')
-    user = authenticate(username=username, password=password)
-    if user is not None:
-        if user.is_active:
-            auth_login(request, user)
-            return render(request, 'forms/hello.html')
-        else:
-            print "Invalid login details: {0}, {1}".format(username, password)
-            return HttpResponse("Invalid login details supplied.")
-    else:
-        return render(request, 'forms/login.html')
 
 def user_logout(request):
     logout(request)
@@ -49,7 +37,7 @@ def base(request):
 
 def job(request):
     f = ProductFilter(request.GET, queryset=Job.objects.all())
-    return render(request, 'forms/job.html', {'filter': f })
+    return render(request, 'forms/job.html', {'filter': f})
 
 def jobtypes(request, jobtype_id):
     jobt = JobType.objects.all().order_by('-name')
@@ -65,15 +53,27 @@ def info(request, id):
 	return render(request, 'forms/filter.html', {'job': job})
 
 def index(request):
-    if request.user.is_authenticated():
+    username = request.POST.get('username')
+    password = request.POST.get('password')
+    user = authenticate(username=username, password=password)
+    if user is authenticate():
         return render(request, 'forms/hello.html')
+    if user is not None:
+        if user.is_active:
+            auth_login(request, user)
+            return render(request, 'forms/hello.html')
+        else:
+            print "Invalid login details: {0}, {1}".format(username, password)
+            return HttpResponse("Invalid login details supplied.")
     else:
-    	pravila = Pravila.objects.all
-    	return render(request, 'forms/index.html', {'pravila': pravila})
+        return render(request, 'forms/index.html')
 
 def pravila(request):
     pravila = Pravila.objects.all
     return render(request, 'forms/pravila.html', {'pravila': pravila})
+
+def hello(request):
+    return render(request, 'forms/hello.html')
 
 
 def register(request):
@@ -83,12 +83,14 @@ def register(request):
             user = form.save(commit=False)
             user.set_password(request.POST['password'])
             user.save()
+            new_user = authenticate(username=request.POST['username'], password=request.POST['password'])
+            auth_login(request, new_user)
             return render(request, 'forms/hello.html')
     else:
-        form = Register()        
+        form = Register()
     return render(request, "forms/registeration.html", {'form':form})
 
-def addjob(request,):
+def addjob(request):
     job = Job.objects.all()
     if request.method == 'POST':
         form = Reg(request.POST)
@@ -96,7 +98,7 @@ def addjob(request,):
             instance = form.save(commit=False)
             instance.user = request.user
             instance.save()
-            return redirect('/')
+            return redirect('/job')
     else:
         form = Reg()        
     return render(request, "forms/addjob.html", {'form': form, 'job': job})
